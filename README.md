@@ -73,19 +73,19 @@ Este projeto requer chaves de API para acessar os modelos de linguagem:
             export HF_API_TOKEN="seu_token_hf_aqui"
             # No Windows (PowerShell): $env:HF_API_TOKEN="seu_token_hf_aqui"
             ```
-    *   *Observação:* O script `agente_multifuncional_gradio.py` atual não usa explicitamente o `HF_API_TOKEN` para o modelo Falcon-7B. A integração com a API da Hugging Face mencionada no issue original pode se referir à capacidade geral da biblioteca `transformers` de interagir com o Hub.
+    *   *Observação:* O script `app.py` atual não usa explicitamente o `HF_API_TOKEN` para o modelo Falcon-7B. A integração com a API da Hugging Face mencionada no issue original pode se referir à capacidade geral da biblioteca `transformers` de interagir com o Hub.
 
 ### 6. Execute o Aplicativo Gradio
 
 Após a instalação e configuração, inicie o servidor Gradio:
 ```bash
-python agente_multifuncional_gradio.py
+python app.py
 ```
 
 Abra seu navegador e acesse o endereço local fornecido (geralmente `http://127.0.0.1:7860` ou similar).
 
 ## 📝 Arquivos do Projeto
 
-*   `agente_multifuncional_gradio.py`: Script principal Python com a lógica do agente e a interface Gradio.
+*   `app.py`: Script principal Python com a lógica do agente e a interface Gradio.
 *   `requirements.txt`: Lista de dependências Python para o projeto.
 *   `README.md`: Este arquivo, contendo a documentação do projeto.

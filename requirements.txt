@@ -1,5 +1,5 @@
 gradio
-openai
+openai==0.28
 transformers
 torch
 huggingface_hub
