@@ -1,0 +1,8 @@
+transformers
+torch
+diffusers
+moviepy==2.2.1
+Pillow
+datasets
+soundfile
+gradio>=3.0
