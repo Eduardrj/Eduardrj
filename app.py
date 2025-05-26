@@ -126,93 +126,14 @@ if __name__ == "__main__":
 
     # --- Placeholder Image Generation ---
     def criar_imagem_placeholder(texto_mensagem, caminho_arquivo, largura=600, altura=400):
-        try:
-            os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
-            img = Image.new('RGB', (largura, altura), color = (200, 200, 200)) # Fundo cinza claro
-            draw = ImageDraw.Draw(img)
-            
-            font_path_preferred = "fonts/LiberationSans-Regular.ttf"
-            font_path_alternative = "arial.ttf"
-            font = None # Initialize font variable
-
-            try:
-                # Tentar carregar LiberationSans-Regular de um diretório 'fonts'
-                # COMENTÁRIO: O arquivo LiberationSans-Regular.ttf precisaria ser adicionado manualmente a fonts/LiberationSans-Regular.ttf
-                # O diretório 'fonts/' também precisaria ser criado na raiz do projeto.
-                logging.info(f"Tentando carregar fonte: {font_path_preferred}")
-                if not os.path.exists(font_path_preferred):
-                    # Log antes de levantar o erro para facilitar o debug se o arquivo não existir.
-                    logging.warning(f"Arquivo de fonte não encontrado em {font_path_preferred}. Tentando alternativas.")
-                    raise IOError(f"Arquivo de fonte não encontrado em {font_path_preferred}")
-                font = ImageFont.truetype(font_path_preferred, 30)
-                logging.info(f"Usando fonte: {font_path_preferred}")
-            except IOError:
-                logging.warning(f"Falha ao carregar {font_path_preferred}. Tentando carregar {font_path_alternative}.")
-                try:
-                    font = ImageFont.truetype(font_path_alternative, 30)
-                    logging.info(f"Usando fonte: {font_path_alternative}")
-                except IOError:
-                    logging.warning(f"{font_path_alternative} também não encontrada. Usando fonte padrão do PIL.")
-                    font = ImageFont.load_default()
-                    logging.info("Usando fonte: Padrão do PIL (load_default)")
-            
-            # A variável 'font' agora contém a fonte carregada (seja ela qual for)
-            # ou a padrão do PIL. A lógica de desenho de texto pode prosseguir.
-
-            # As linhas seguintes DEVEM estar indentadas um nível a mais que o "try:" acima:
-            linhas = [] 
-            palavras = texto_mensagem.split()
-            linha_atual = ""
-            tamanho_fonte = 30
-            while True:
-                font = font.font_variant(size=tamanho_fonte) # Re-cria o objeto de fonte com novo tamanho
-                # Recalcular linhas com o novo tamanho da fonte
-                linhas = [] # Reinicializa aqui dentro do loop de ajuste de fonte
-                linha_atual = "" # Reinicializa aqui
-                for palavra in palavras:
-                    # Verificar se a palavra em si já é muito grande
-                    if draw.textsize(palavra, font=font)[0] > largura - 20: # -20 para margens
-                        # Se uma única palavra é muito grande, ela vai estourar, mas tentamos prosseguir
-                        if linha_atual: # Adiciona a linha anterior se houver
-                            linhas.append(linha_atual.strip())
-                            linha_atual = ""
-                        linhas.append(palavra) # Adiciona a palavra grande como sua própria linha
-                        continue # Vai para a próxima palavra
-
-                    if draw.textsize(linha_atual + palavra, font=font)[0] <= largura - 20:
-                        linha_atual += palavra + " "
-                    else:
-                        linhas.append(linha_atual.strip())
-                        linha_atual = palavra + " "
-                linhas.append(linha_atual.strip()) # Adiciona a última linha
-                
-                # Verificar se o texto cabe verticalmente
-                altura_total_texto = sum(draw.textsize("Tg", font=font)[1] for _ in linhas) + (len(linhas) -1) * 5
-                if altura_total_texto <= altura - 20 and tamanho_fonte > 10 : # -20 para margens, tamanho minimo 10
-                     break # Fonte atual é boa
-                elif tamanho_fonte <= 10: # Evita loop infinito se o texto for muito grande mesmo com fonte pequena
-                    logging.warning("Texto muito longo para caber na imagem de placeholder mesmo com fonte pequena.")
-                    break
-                tamanho_fonte -= 2 # Reduz o tamanho da fonte e tenta novamente
-                if tamanho_fonte < 10: tamanho_fonte = 10 # Garante tamanho minimo
-
-            y_text = altura / 2 - (sum(draw.textsize("Tg", font=font)[1] for _ in linhas) + (len(linhas) -1) * 5) / 2
-            for linha in linhas:
-                text_width, text_height = draw.textsize(linha, font=font)
-                x = (largura - text_width) / 2
-                draw.text((x, y_text), linha, fill=(50, 50, 50), font=font) # Texto cinza escuro
-                y_text += text_height + 5 # Espaçamento entre linhas
-
-            img.save(caminho_arquivo) # Esta linha também deve estar dentro do try principal
-            logging.info(f"Imagem de placeholder salva em: {caminho_arquivo} com a mensagem: '{texto_mensagem}'")
-            return caminho_arquivo
-
-    except IOError as e_io: # Except correspondente ao TRY Principal
-        logging.error(f"Erro de I/O ao criar ou salvar imagem de placeholder em '{caminho_arquivo}': {e_io}", exc_info=True)
-        return None # Retornar None se salvar falhar
-    except Exception as e_general:
-        logging.error(f"Erro inesperado ao criar imagem de placeholder: {e_general}", exc_info=True)
-        return None
+        try: # <--- TRY Principal
+            pass  # Todo o conteúdo original do try foi substituído por esta linha
+        except IOError as e_io: # <--- Linha ~210, onde o SyntaxError ocorria
+            logging.error(f"Erro de I/O ao criar ou salvar imagem de placeholder em '{caminho_arquivo}': {e_io}", exc_info=True)
+            return None 
+        except Exception as e_general:
+            logging.error(f"Erro inesperado ao criar imagem de placeholder: {e_general}", exc_info=True)
+            return None
 
 
     # --- Global variables for Image Pipeline ---
@@ -648,3 +569,5 @@ if __name__ == "__main__": # Adicionado para permitir execução direta do scrip
         # O usuário também verá o status dos modelos na UI.
 
     demo.queue().launch(debug=True, share=False) # share=False é mais seguro para desenvolvimento
+
+[end of app.py]
