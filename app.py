@@ -570,4 +570,4 @@ if __name__ == "__main__": # Adicionado para permitir execução direta do scrip
 
     demo.queue().launch(debug=True, share=False) # share=False é mais seguro para desenvolvimento
 
-[end of app.py]
+# end of app.py
