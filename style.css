@@ -1,0 +1,235 @@
+/* Estilos gerais */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Filtros da Galeria */
+#filtros-galeria {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filtro-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filtro-btn:hover, .filtro-btn.active {
+    background-color: #007bff;
+}
+
+/* Container da Galeria */
+#galeria-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centralizar itens */
+}
+
+/* Itens da Galeria */
+.item-galeria {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    text-align: center;
+    width: calc(33.333% - 32px); /* Para 3 colunas, considerando o gap */
+    margin-bottom: 16px; /* Adicionado para consistência com o gap */
+}
+
+.item-galeria img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    border-radius: 3px;
+}
+
+.item-galeria p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Estilos da Página de Contato */
+#info-contato ul {
+    list-style: none;
+    padding: 0;
+}
+
+#info-contato li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#info-contato strong {
+    margin-right: 8px;
+}
+
+#mapa-placeholder {
+    width:100%;
+    height:350px;
+    background-color:#e9e9e9;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+#formulario-contato div {
+    margin-bottom: 15px;
+}
+
+#formulario-contato label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formulario-contato input[type="text"],
+#formulario-contato input[type="email"],
+#formulario-contato input[type="tel"],
+#formulario-contato textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Para incluir padding e border na largura total */
+}
+
+#formulario-contato textarea {
+    resize: vertical; /* Permite redimensionamento vertical */
+}
+
+.btn-enviar {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsividade para a galeria e formulário */
+@media (max-width: 992px) {
+    .item-galeria {
+        width: calc(50% - 32px); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .item-galeria {
+        width: calc(100% - 32px); /* 1 coluna em mobile */
+    }
+    #formulario-contato input[type="text"],
+    #formulario-contato input[type="email"],
+    #formulario-contato input[type="tel"],
+    #formulario-contato textarea {
+        width: 100%; /* Garante que o formulário ocupe a largura total em telas menores */
+    }
+}
+
+/* Footer básico (pode ser expandido) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/*
+    ========================================
+    Acessibilidade e Performance
+    ========================================
+*/
+
+/*
+    Lembrete de Acessibilidade:
+    Verificar o contraste de cores entre texto e fundo.
+    WCAG AA requer uma taxa de contraste de pelo menos 4.5:1 para texto normal
+    e 3:1 para texto grande (e elementos de UI e gráficos).
+    Use ferramentas online para verificar os contrastes ao definir as cores finais.
+*/
+
+/* Estilos de foco visíveis para navegação por teclado */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus { /* Adicionado select para completude */
+    outline: 3px solid #0056b3; /* Azul escuro para bom contraste em fundos claros e escuros */
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Um brilho sutil para ajudar a destacar */
+}
+
+/* Para remover o outline padrão apenas quando um estilo de foco customizado está ativo (opcional) */
+/*
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+*/
+
+/*
+    Nota de Performance:
+    Para produção, este arquivo CSS deve ser minificado para reduzir seu tamanho.
+    Ferramentas como CSSNano ou integrações em bundlers (Webpack, Parcel) podem automatizar isso.
+*/

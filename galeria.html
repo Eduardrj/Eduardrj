@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeria de projetos da Vidraçaria Bragança em Ipanema. Veja fotos de box de banheiro, espelhos, vidros instalados e molduras. Inspire-se conosco!">
+    <meta name="keywords" content="galeria vidraçaria, projetos vidros RJ, fotos box banheiro, espelhos instalados Ipanema, molduras Rio de Janeiro, Vidraçaria Bragança">
+    <title>Galeria de Projetos - Vidraçaria Bragança</title>
+    <link rel="stylesheet" href="style.css">
+    <!--
+    INSERIR SCRIPT DO GOOGLE ANALYTICS (gtag.js) AQUI.
+    Obtenha o código de acompanhamento na sua conta do Google Analytics.
+    Exemplo:
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    Substitua 'GA_MEASUREMENT_ID' pelo seu ID de acompanhamento (o mesmo do index.html).
+    -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Galeria de Projetos - Vidraçaria Bragança</h1>
+        <p>Confira alguns exemplos de nossos trabalhos realizados em Ipanema e região. Aqui você encontrará inspiração para seus projetos, com instalações de box de banheiro, espelhos para sala, molduras personalizadas e muito mais. Navegue pela nossa galeria e veja a qualidade e o cuidado que dedicamos a cada detalhe.</p>
+
+        <div id="filtros-galeria">
+            <button class="filtro-btn active" data-categoria="todos" aria-pressed="true">Todos</button>
+            <button class="filtro-btn" data-categoria="box" aria-pressed="false">Box de Banheiro</button>
+            <button class="filtro-btn" data-categoria="espelhos" aria-pressed="false">Espelhos</button>
+            <button class="filtro-btn" data-categoria="molduras" aria-pressed="false">Molduras</button>
+            <button class="filtro-btn" data-categoria="vidros-diversos" aria-pressed="false">Vidros Diversos</button>
+        </div>
+
+        <section id="galeria-container">
+            <div class="item-galeria" data-categoria="box">
+                <img src="https://via.placeholder.com/300x200.png?text=Box+Frontal" alt="Exemplo de Box de Banheiro Frontal">
+                <p>Box de Banheiro Frontal</p>
+            </div>
+            <div class="item-galeria" data-categoria="espelhos">
+                <img src="https://via.placeholder.com/300x200.png?text=Espelho+Sala+Jantar" alt="Exemplo de Espelho para Sala de Jantar">
+                <p>Espelho para Sala de Jantar</p>
+            </div>
+            <div class="item-galeria" data-categoria="molduras">
+                <img src="https://via.placeholder.com/300x200.png?text=Moldura+Quadro" alt="Exemplo de Moldura para Quadro">
+                <p>Moldura para Quadro</p>
+            </div>
+            <div class="item-galeria" data-categoria="box">
+                <img src="https://via.placeholder.com/300x200.png?text=Box+de+Canto" alt="Exemplo de Box de Banheiro de Canto">
+                <p>Box de Banheiro de Canto</p>
+            </div>
+            <div class="item-galeria" data-categoria="espelhos">
+                <img src="https://via.placeholder.com/300x200.png?text=Espelho+Bisotado" alt="Exemplo de Espelho Bisotado para Banheiro">
+                <p>Espelho Bisotado para Banheiro</p>
+            </div>
+            <div class="item-galeria" data-categoria="vidros-diversos">
+                <img src="https://via.placeholder.com/300x200.png?text=Tampo+Mesa+Vidro" alt="Exemplo de Tampo de Mesa de Vidro">
+                <p>Tampo de Mesa de Vidro</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Vidraçaria Bragança. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+<!--
+    Nota de Performance:
+    1. Minificação HTML: Para produção, minificar este HTML.
+    2. Otimização de Imagens: As imagens da galeria devem ser otimizadas (compressão, WebP)
+       e considerar lazy loading para imagens fora da tela inicial.
+    3. Para outras notas de performance (cache, CSS/JS), veja os comentários em index.html.
+-->
